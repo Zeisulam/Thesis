@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "67def1fc29faa41393fda2cb"
+  },
+  "email": "aiprojectstorages@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "67defcdb4700074e056791d3"
+  },
+  "email": "vincecando0908@yahoo.com"
+},
+{
+  "_id": {
+    "$oid": "67deff16817648ea3f3b7a20"
+  },
+  "email": "candovince0908@gmail.com"
+},
+{
+  "_id": {
+    "$oid": "67df0c3df4ac4df46e44738f"
+  },
+  "email": "2021303876@dhvsu.edu.ph"
+},
+{
+  "_id": {
+    "$oid": "67e021faca2f0b6b290fb096"
+  },
+  "email": "chester.daroy@gmail.com"
+}]

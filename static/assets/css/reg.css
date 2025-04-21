@@ -1,0 +1,455 @@
+/* POPPINS FONT*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400;500;600;700;800;display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popppins', sans-serif;
+}
+
+:root {
+    --primary-color: #c6c3c3;
+    --secondary-color-hover: #d79447;
+    --secondary-color: #cb8d47;
+    --black-color: #111317;
+    --text-color: #ffffff;
+}
+a{
+    text-decoration: none;
+    color: var(--secondary-color-hover);
+}
+
+a:hover{
+    text-decoration: underline;
+}
+body{
+    background: rgba(0, 0,  0, 0.6) url(../images/PTU.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: darken;
+}
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(0, 0,  0, 0.2);
+}
+
+.form-container{
+    height: auto;   
+    position: relative;
+    width: 550px;
+    backdrop-filter: blur(30px);
+    border: 2px solid var(--secondary-color);
+    border-radius: 15px;
+    padding: 4.5em 2.5em 4em 2.5em;
+    color: var(--text-color);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0,  0, 0.2);
+}
+.signup_header{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    width: 140px;
+    height: 60px;
+    border-radius: 0 0 20px 20px;
+}
+.signup_header span{
+    font-size: 30px;
+    color: var(--black-color);
+}
+.signup_header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background: transparent;
+    box-shadow: 15px 0 0 0 var(--secondary-color);
+}
+.signup_header::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 50%;
+    background: transparent;
+    box-shadow: -15px 0 0 0 var(--secondary-color);
+}
+.inputBox{
+    padding-top: 20px;
+}
+.nameField{
+    width: 90%;
+    height: 50px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text-color);
+    padding-inline: 30px 30px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 20px;
+    outline: none;
+    margin: 8px;
+}
+
+.emailField{
+    width: 90%;
+    height: 50px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text-color);
+    padding-inline: 20px 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 20px;
+    outline: none;
+    margin: 8px;
+}
+
+.contactField{
+    width: 90%;
+    height: 50px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text-color);
+    padding-inline: 20px 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 20px;
+    outline: none;
+    margin: 8px;
+}
+
+.subjectField{
+    width: 90%;
+    height: 50px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text-color);
+    padding-inline: 20px 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 20px;
+    outline: none;
+    margin: 8px;
+}
+
+.detailsField{
+    width: 90%;
+    height: 190px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--text-color);
+    padding-inline: 20px 20px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 20px;
+    outline: none;
+    margin: 8px;
+    text-align: left;
+    vertical-align: top;
+    resize: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    overflow-y: scroll;
+}
+
+.detailsField::-webkit-scrollbar-track{
+    background: transparent;
+    border-radius: 50vw;
+    margin-block: 1.5em;
+}
+.detailsField::-webkit-scrollbar{
+    width: 3px;
+    padding-right: 10px;
+    margin-top: 10px;
+}   
+.detailsField::-webkit-scrollbar-thumb{
+    background-color: var(--secondary-color);
+    border-radius: 100vw;
+}
+
+.row1{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding-bottom: 10px;
+    justify-items: center;
+}
+.label-name{
+    position: absolute;
+    top: 97px;
+    left: 90px;
+    transition: 0.2s ease;
+    font-size: 15px;
+}
+.label-email{
+    position: absolute;
+    top: 162px;
+    left: 90px;
+    transition: 0.2s ease;
+    font-size: 15px;
+}
+.label-number{
+    position: absolute;
+    top: 230px;
+    left: 90px;
+    transition: 0.2s ease;
+    font-size: 15px;
+}
+
+.label-subject{
+    position: absolute;
+    top: 297px;
+    left: 90px;
+    transition: 0.2s ease;
+    font-size: 15px;
+}
+
+.label-details{
+    position: absolute;
+    top: 357px;
+    left: 90px;
+    transition: 0.2s ease;
+    font-size: 15px;
+}
+
+.input-submit{
+    width: 100%;
+    height: 50px;
+    background: var(--text-color);
+    font-size: 16px;
+    font-weight: 550;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    color: var(--black-color);
+}
+.input-submit:hover{
+    background: var(--text-color);
+    box-shadow: 0 0 3px var(--text-color);
+}
+.loginzone{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.loginzone a{
+    font-weight: 500;
+}
+
+.nameField:focus ~ .label-name,
+.nameField:valid ~ .label-name{
+    position: absolute;
+    top: 74px;
+    left: 95px;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: var(--secondary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+
+}
+.emailField:focus ~ .label-email,
+.emailField:valid ~ .label-email{
+    position: absolute;
+    top: 140px;
+    left: 95px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--secondary-color-hover);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+.contactField:focus ~ .label-number,
+.contactField:valid ~ .label-number{
+    position: absolute;
+    top: 206px;
+    left: 95px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--secondary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+.subjectField:focus ~ .label-subject,
+.subjectField:valid ~ .label-subject{
+    position: absolute;
+    top: 273px;
+    left: 95px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--secondary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+.detailsField:focus ~ .label-details,
+.detailsField.not-empty ~ .label-details{
+    position: absolute;
+    top: 338px;
+    left: 95px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--secondary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: var(--black-color);
+    margin: 25% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid var(--secondary-color);
+    width: 25%; /* Could be more or less, depending on screen size */
+    border-radius: 5px;
+    
+}
+
+.modal-content p{
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 600;
+    align-items: center;
+}
+
+.close {
+    color: var(--secondary-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--secondary-color-hover);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 755px) {
+    .form-container{
+        height: auto;
+        margin: 90px;
+        min-width: 500px;
+    }
+
+    .label-name, 
+    .label-email, 
+    .label-number, 
+    .label-subject, 
+    .label-details{
+        left: 80px;
+    }
+    
+
+    .nameField:focus ~ .label-name,
+    .nameField:valid ~ .label-name{
+        position: absolute;
+        top: 75px;
+        left: 85px;
+        font-size: 13px;
+    }
+    .emailField:focus ~ .label-email,
+    .emailField:valid ~ .label-email{
+        position: absolute;
+        top: 141px;
+        left: 85px;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 580px){
+    .form-container{
+        min-width: 400px;
+        overflow-y: scroll;
+        
+    }
+    .inputBox{
+        height: 60vh;
+        width: 330px;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+    .form-container::-webkit-scrollbar-track{
+        background: transparent;
+        border-radius: 50vw;
+        margin-block: 1.5em;
+    }
+    .form-container::-webkit-scrollbar{
+        width: 3px;
+        padding-right: 10px;
+        margin-top: 10px;
+    }
+    .form-container::-webkit-scrollbar-thumb{
+        background-color: var(--secondary-color);
+        border-radius: 100vw;
+    }
+    .label-name{
+        left: 70px;
+    }
+    .label-email{
+        left: 70px;
+    }
+    .label-number{
+        left: 70px;
+    }
+    .label-subject{
+        left: 70px;
+    }
+    .label-details{
+        left: 70px;
+    }
+    .nameField:focus ~ .label-name,
+    .nameField:valid ~ .label-name{
+        left: 75px;
+    }
+    .emailField:focus ~ .label-email,
+    .emailField:valid ~ .label-email{
+        left: 75px;
+    }
+    .contactField:focus ~ .label-number,
+    .contactField:valid ~ .label-number{
+        left: 75px;
+    }
+    .subjectField:focus ~ .label-subject,
+    .subjectField:valid ~ .label-subject{
+        left: 75px;
+    }
+    .detailsField:focus ~ .label-details,
+    .detailsField.not-empty ~ .label-details{
+        left: 75px;
+    }
+    .loginzone{
+        padding-bottom: 20px;
+    }
+}

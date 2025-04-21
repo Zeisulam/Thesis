@@ -1,0 +1,679 @@
+/* POPPINS FONT*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400;500;600;700;800;display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popppins', sans-serif;
+}
+
+:root {
+    --primary-color: #c6c3c3;
+    --secondary-color: #ffffff;
+    --black-color: #000000;
+}
+
+body {
+    background-image: url(../images/image.png);
+    background-position: cover;
+    background-position: center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(0, 0,  0, 0.2);
+}
+
+.registerBox {
+    height: 65vh;
+    position: relative;
+    width: 650px;
+    backdrop-filter: blur(25px);
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 4.5em 2.5em 4em 2.5em;
+    color: var(--secondary-color);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0,  0, 0.3);
+}
+
+.loginHeader{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    width: 140px;
+    height: 70px;
+    border-radius: 0 0 20px 20px;
+}
+
+.loginHeader span{
+    font-size: 30px;
+    color: var(--black-color);
+}
+
+.loginHeader::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-right-radius: 50%;
+    background: transparent;
+    box-shadow: 15px 0 0 0 var(--primary-color);
+}
+
+.loginHeader::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 30px;
+    border-top-left-radius: 50%;
+    background: transparent;
+    box-shadow: -15px 0 0 0 var(--primary-color);
+}
+.inputBox {
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+    padding-top: 10px;
+}
+
+.inputBox1 {
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+
+.inputField{
+    width: 200px;
+    height: 55px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--secondary-color);
+    padding-inline: 20px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    outline: none;
+}
+
+.inputField-date {
+    width: 200px;
+    height: 55px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--secondary-color);
+    padding-inline: 20px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    outline: none;
+    
+}
+
+.optionField{
+    width: 200px;
+    height: 55px;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+    padding-inline: 20px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    outline: none; 
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+.inputFields {
+    width: 90%;
+    height: 55px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--secondary-color);
+    padding-inline: 20px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    outline: none;
+}
+
+#user{
+    margin-bottom: 10px;
+}
+
+#gym, #username, #pass, #repass {
+    margin-bottom: 10px
+}
+
+.label {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    transition: 0.2s;
+}
+.label-mid {
+    position: absolute;
+    top: 30px;
+    left: 260px;
+    transition: 0.2s;
+}
+.label-last {
+    position: absolute;
+    top: 30px;
+    left: 500px;
+    transition: 0.2s;
+}
+
+.label-age {
+    position: absolute;
+    top: 20px;
+    left: 260px;
+    transition: 0.2s;
+}
+
+
+.label-belt{
+    position: absolute;
+    top: -7px;
+    left: 30px;
+    transition: 0.2s;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 5px;
+}
+
+.label-bday{
+    position: absolute;
+    top: -7px;
+    left: 510px;
+    transition: 0.2s;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 5px;
+}
+.label-gym {
+    position: absolute;
+    top: 255px;
+    left: 86px;
+    transition: 0.2s;
+}
+
+.label-user {
+    position: absolute;
+    top: 320px;
+    left: 86px;
+    transition: 0.2s;
+}
+.label-pass {
+    position: absolute;
+    top: 385px;
+    left: 86px;
+    transition: 0.2s;
+}
+.label-repass {
+    position: absolute;
+    top: 450px;
+    left: 86px;
+    transition: 0.2s;
+}
+
+
+.inputField:focus ~ .label,
+.inputField:valid ~ .label{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.inputField:focus ~ .label-mid,
+.inputField:valid ~ .label-mid{
+    position: absolute;
+    top: 0px;
+    left: 265px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.inputField:focus ~ .label-last,
+.inputField:valid ~ .label-last{
+    position: absolute;
+    top: 0px;
+    left: 505px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.inputFields:focus ~ .label-gym,
+.inputFields:valid ~ .label-gym{
+    position: absolute;
+    top: 225px;
+    left: 90px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.inputField:focus ~ .label-age,
+.inputField:valid ~ .label-age{
+    position: absolute;
+    top: -10px;
+    left: 265px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.inputFields:focus ~ .label-user,
+.inputFields:valid ~ .label-user{
+    position: absolute;
+    top: 292px;
+    left: 90px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.inputFields:focus ~ .label-pass,
+.inputFields:valid ~ .label-pass{
+    position: absolute;
+    top: 358px;
+    left: 90px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.inputFields:focus ~ .label-repass,
+.inputFields:valid ~ .label-repass{
+    position: absolute;
+    top: 422px;
+    left: 90px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.input-a{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.icon{
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    font-size: 20px;
+}
+
+.repass{
+    position: absolute;
+    top: 300px;
+    right: 55px;
+    font-size: 17px;
+}
+
+.fa-eye{
+    position: absolute;
+    top: 382px;
+    right: 80px;
+    font-size: 17px;
+    color: var(--primary-color);
+}
+.fa-eye.active{
+    color: var(--secondary-color);
+}
+
+.repass{
+    position: absolute;
+    top: 449px;
+    right: 80px;
+    font-size: 17px;
+    color: var(--primary-color);
+}
+
+.repass.active{
+    color: var(--secondary-color);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.input-submit{
+    width: 100%;
+    height: 50px;
+    background: #ececec;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.input-submit:hover{
+    background: var(--secondary-color);
+}
+
+.loginzone{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.loginzone a{
+    font-weight: 500;
+}
+@media only screen and (max-width: 750px){
+    .wrapper{
+        padding: 100px;
+        margin: auto;
+    }
+    .registerBox{
+        padding: 5em 1em 1em 1em;
+        height: 65vh;
+    }
+    
+    #mname.inputField{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .label{
+        left: 25px;
+    }
+
+    .label-mid{
+        left: 230px;
+    }
+    .inputField:focus ~ .label,
+    .inputField:valid ~ .label{
+        top: 3px;
+        left: 25px;
+    }
+    .inputField:focus ~ .label-mid,
+    .inputField:valid ~ .label-mid{
+        top: 3px;
+        left: 230px;
+    }
+    .label-last{
+        left: 435px;
+    }
+    .inputField:focus ~ .label-last,
+    .inputField:valid ~ .label-last{
+        top: 3px;
+        left: 440px;
+    }
+    .label-age{
+        left: 230px;
+    }
+
+    .inputField:focus ~ .label-age,
+    .inputField:valid ~ .label-age{
+        top: -7px;
+        left: 240px;
+    }
+    .label-bday{
+        left: 440px;
+    }
+    .label-gym, .label-user, .label-pass, .label-repass{
+        left: 65px;
+    }
+    .label-gym{
+        top: 260px;
+    }
+    .inputFields:focus ~ .label-gym,
+    .inputFields:valid ~ .label-gym{
+        top: 235px;
+        left: 85px;
+    }
+    .label-user{
+        top: 325px;
+    }
+    .inputFields:focus ~ .label-user,
+    .inputFields:valid ~ .label-user{
+        top: 298px;
+        left: 85px;
+    }
+    .label-pass{
+        top: 390px;
+    }
+    .inputFields:focus ~ .label-pass,
+    .inputFields:valid ~ .label-pass{
+        top: 365px;
+        left: 85px;
+    }
+    .fa-eye{
+        top: 390px;
+        right: 60px;
+    }
+    .repass{
+        top: 455px;
+        right: 60px;
+    }
+    .label-repass{
+        top: 455px;
+    }
+    .inputFields:focus ~ .label-repass,
+    .inputFields:valid ~ .label-repass{
+        top: 430px;
+        left: 85px;
+    }
+    .inputFields{
+        padding-inline: 20px 40px;
+    }
+}
+
+@media only screen and (max-width: 641px){
+    .wrapper{
+        padding: 20px;
+    }
+
+    .registerBox{
+        padding: 4em 1.5em 1.5em 1.5em;
+        overflow-y: scroll;
+        height: 65vh;
+    }
+    .registerBox::-webkit-scrollbar-track{
+        background: transparent;
+        border-radius: 50vw;
+        margin-block: 1.5em;
+    }
+    .registerBox::-webkit-scrollbar{
+        width: 3px;
+        padding-right: 10px;
+        margin-top: 10px;
+        
+    }
+    .registerBox::-webkit-scrollbar-thumb{
+        background-color: var(--secondary-color);
+        border-radius: 100vw;
+    }
+
+    .inputBox{
+        flex-direction: column;
+        padding: 15px 0px 0px;
+        margin-bottom: 0px;
+    }
+    .inputBox1{
+        flex-direction: column;
+        margin: 1px;
+    }
+    .inputField, .inputField-date{
+        width: 90%;
+        margin-bottom: 10px;
+    }
+    .inputFields{
+        padding-inline: 20px 30px;
+    }
+
+    .label{
+        position: absolute;
+        left: 45px;
+        top: 35px;
+    }
+
+    .label-mid{
+        position: absolute;
+        left: 45px;
+        top: 100px;
+    }
+
+    .label-last{
+        position: absolute;
+        left: 45px;
+        top: 165px;
+    }
+
+    .inputField:focus ~ .label,
+    .inputField:valid ~ .label{
+    left: 50px;
+    top: 7px;
+    }
+
+    .inputField:focus ~ .label-mid,
+    .inputField:valid ~ .label-mid{
+    left: 50px;
+    top: 73px;
+    }
+
+    .inputField:focus ~ .label-last,
+    .inputField:valid ~ .label-last{
+    left: 50px;
+    top: 139px;
+    }
+    .optionField{
+        display: flex;
+        width: 90%;
+        margin-bottom: 10px;
+    }
+    .label-belt{
+        position: absolute;
+        top: -5px;
+        left: 50px;
+    }
+    .label-age{
+        position: absolute;
+        top: 86px;
+        left: 45px;
+    }
+    .inputField:focus ~ .label-age,
+    .inputField:valid ~ .label-age{
+    left: 50px;
+    top: 58px;
+    }
+    .label-bday{
+        position: absolute;
+        top: 125px;
+        left: 50px;
+    }
+    .label-gym{
+        position: absolute;
+        top: 495px;
+        left: 62px;
+    }
+    .inputFields:focus ~ .label-gym,
+    .inputFields:valid ~ .label-gym{
+        top: 469px;
+        left: 68px;  
+    }
+    .label-user{
+        top: 560px;
+        left: 62px;
+    }
+    .inputFields:focus ~ .label-user,
+    .inputFields:valid ~ .label-user{
+        top: 534px;
+        left: 68px;  
+    }
+    .label-pass{
+        top: 625px;
+        left: 62px;
+    }
+    .inputFields:focus ~ .label-pass,
+    .inputFields:valid ~ .label-pass{
+        top: 599px;
+        left: 68px;  
+    }
+    .label-repass{
+        top: 690px;
+        left: 62px;
+    }
+    .inputFields:focus ~ .label-repass,
+    .inputFields:valid ~ .label-repass{
+        top: 665px;
+        left: 68px;  
+    }
+    .fa-eye{
+        position: absolute;
+        top: 625px;
+        right: 53px;
+    }
+    .repass{
+        position: absolute;
+        top: 690px;
+        right: 53px;
+    }
+    .input-submit{
+        margin-top: 10px;
+    }
+    .loginzone{
+        margin: 10px;
+    }
+}

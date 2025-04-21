@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Taekwondo Scoreboard</title>
+    <link rel="stylesheet" href="../static/assets/css/adminSB.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Admin Panel</h1>
+
+      <div class="players-container">
+        <div class="player1">
+          <div class="player-info">
+            <h2>Player 1 Information</h2>
+            <div class="info-columns">
+              <div class="info-column">
+                <p><strong>Player:</strong> <span id="player1-name"></span></p>
+                <p>
+                  <strong>Category:</strong> <span id="player1-category"></span>
+                </p>
+              </div>
+              <div class="info-column">
+                <p><strong>Belt:</strong> <span id="player1-belt"></span></p>
+                <p><strong>Gym:</strong> <span id="player1-gym"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="scoring-container">
+            <div class="top-row">
+              <h2 class="highlight">
+                Total Score: <span id="player1-total-score">10</span>
+              </h2>
+            </div>
+          </div>
+          <div class="scoring-container">
+            <div class="top-row">
+              <h2 class="highlight">
+                Performing: <span id="player1-performing"></span>
+              </h2>
+            </div>
+          </div>
+
+          <div class="scoreboard">
+            <div class="column">
+              <h2>Accuracy</h2>
+              <p class="score" id="player1-accuracy-score">4</p>
+              <input
+                type="number"
+                id="player1-accuracy-deduction"
+                class="deduction-input"
+                step="0.1"
+                min="0"
+                placeholder="Enter Deduction"
+              />
+            </div>
+
+            <div class="column">
+              <h2>Presentation</h2>
+              <p class="score" id="player1-presentation-score">6</p>
+              <input
+                type="number"
+                id="player1-presentation-deduction"
+                class="deduction-input"
+                step="0.1"
+                min="0"
+                placeholder="Enter Deduction"
+              />
+            </div>
+          </div>
+          <h2 class="player1-detected" id="player1-detected">Not Register</h2>
+          <button class="btn player1-register" onclick="">
+            Register Player 1
+          </button>
+          <button class="btn player1-start">Start</button>
+          <button class="btn player1-submit" id="player1-submit">
+            Submit Scores
+          </button>
+          <button class="btn player1-undo" onclick="">Undo</button>
+          <button class="btn player1-redo" onclick="">Redo</button>
+        </div>
+
+        <div class="player2">
+          <div class="player-info">
+            <h2>Player 2 Information</h2>
+            <div class="info-columns">
+              <div class="info-column">
+                <p><strong>Player:</strong> <span id="player2-name"></span></p>
+                <p>
+                  <strong>Category:</strong> <span id="player2-category"></span>
+                </p>
+              </div>
+              <div class="info-column">
+                <p><strong>Belt:</strong> <span id="player2-belt"></span></p>
+                <p><strong>Gym:</strong> <span id="player2-gym"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="scoring-container">
+            <div class="top-row">
+              <h2 class="highlight">
+                Total Score: <span id="player2-total-score">10</span>
+              </h2>
+            </div>
+          </div>
+          <div class="scoring-container">
+            <div class="top-row">
+              <h2 class="highlight">
+                Performing: <span id="player2-performing"></span>
+              </h2>
+            </div>
+          </div>
+
+          <div class="scoreboard">
+            <div class="column">
+              <h2>Accuracy</h2>
+              <p class="score" id="player2-accuracy-score">4</p>
+              <input
+                type="number"
+                id="player2-accuracy-deduction"
+                class="deduction-input"
+                step="0.1"
+                min="0"
+                placeholder="Enter Deduction"
+              />
+            </div>
+
+            <div class="column">
+              <h2>Presentation</h2>
+              <p class="score" id="player2-presentation-score">6</p>
+              <input
+                type="number"
+                id="player2-presentation-deduction"
+                class="deduction-input"
+                step="0.1"
+                min="0"
+                placeholder="Enter Deduction"
+              />
+            </div>
+          </div>
+          <h2 class="player2-detected" id="player2-detected">Not Register</h2>
+          <button class="btn player2-register">Register Player 2</button>
+          <button class="btn player2-start">Start</button>
+          <button class="btn player2-submit" id="player2-submit">
+            Submit Scores
+          </button>
+          <button class="btn player2-undo">Undo</button>
+          <button class="btn player2-redo" onclick="">Redo</button>
+        </div>
+      </div>
+      <button class="displayBtn">Display the Winner</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
+
+    <script src="../static/assets/js/adminSB.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="../static/assets/css/reg.css">
+     
+    <!-- Boxicons & Font Awesome -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-container">
+            <div class="signup_header">
+                <span>Register<span>
+            </div>    
+            <form name="signup_form" id="signup_form" class="inputBox">
+                
+                <div class="row1">
+                    <input type="hidden" name="access_key" value="aba81b4b-e345-424b-a32d-4a7e0a08367b">
+                    <input type="hidden" name="redirect" value="http://127.0.0.1:5000/">
+
+                    <input type="text" name="name" class="nameField" required>
+                    <label for="name" class="label-name">Enter your Name</label>
+
+                    <input type="email" name="email" class="emailField" required>
+                    <label for="email" class="label-email">Enter your Email</label>
+                    
+                    <input type="tel" name="number" class="contactField" required>
+                    <label for="number" class="label-number">Contact No.</label>
+                    
+                    <input type="text" name="subject" class="subjectField" required>
+                    <label for="subject" class="label-subject">Subject</label>
+                    
+                    <textarea type="text" id="details" name="details" class="detailsField" cols="40" rows="10"></textarea>
+                    <label for="details" class="label-details">Enter details here...</label>
+                </div>
+                    
+                <p class="error--hidden"></p>
+            
+                <input type="submit" class="input-submit" value="Submit Registration" class="btn">
+                
+                <div class="loginzone">
+                    <span>Already submitted an email? <a href="{{ url_for('home') }}">
+                        Back to previous page
+                    </a></span>
+                </div>
+            </form>
+        </div>
+    </div>    
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="successMessage"></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/assets/js/registration.js"></script>
+    <script src="../static/assets/js/scripts.js"></script>
+</body>
+</html>

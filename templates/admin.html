@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;"
+    />
+    <title>PTU</title>
+    <link rel="stylesheet" href="../static/assets/css/admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <script src="../static/assets/js/drive.js"></script>
+  </head>
+
+  <body>
+    <!--NavBar-->
+    <div class="container-navbar">
+      <div class="profile-container">
+        <a href="/api/logout">Log Out</a>
+      </div>
+    </div>
+
+    <!--SideBar-->
+    <div class="container-sidebar">
+      <div class="dashboard container-nav-circle">
+        <div class="circle-container">
+          <div class="dashboard-icon icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+        </div>
+        <h1>Dashboard</h1>
+      </div>
+
+      <div class="history container-nav-circle">
+        <div class="circle-container">
+          <div class="history-icon icon">
+            <i class="fas fa-history"></i>
+          </div>
+        </div>
+        <h1>History</h1>
+      </div>
+
+      <div class="record container-nav-circle">
+        <div class="circle-container">
+          <div class="record-icon icon">
+            <i class="far fa-file"></i>
+          </div>
+        </div>
+        <h1>Record</h1>
+      </div>
+
+      <div class="news container-nav-circle">
+        <div class="circle-container">
+          <div class="news-icon icon">
+            <i class="fa-regular fa-registered"></i>
+          </div>
+        </div>
+        <h1>Register</h1>
+      </div>
+    </div>
+
+    <!--MainPage-->
+    <div class="container-mainpage">
+      <div class="contents-container-mainpage">
+        <div class="dashboard-content" id="dashboard-content">
+          <h2>Dashboard</h2>
+          <div class="content-boxes">
+            <div class="students-box box">
+              <div class="box-content">
+                <h2>Student</h2>
+                <h3 id="number-students">0</h3>
+              </div>
+            </div>
+            <div class="coaches-box box">
+              <div class="box-content">
+                <h2>Coaches</h2>
+                <h3 id="number-coaches">0</h3>
+              </div>
+            </div>
+            <div class="incoming-events-box box">
+              <div class="box-content">
+                <h2>Events</h2>
+                <h3 id="number-incoming-events">0</h3>
+              </div>
+            </div>
+            <div class="news-box box">
+              <div class="box-content">
+                <h2>News</h2>
+                <h3 id="number-news">0</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="history-content" id="history-content">
+          <h2>Player History</h2>
+          <h3>Overview</h3>
+          <div class="overview-box">
+            <table id="overview-table">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Score</th>
+                  <th>Perfomed</th>
+                  <th>Category</th>
+                  <th>Status</th> 
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="tournament-played-box">
+            <span></span>
+          </div>
+
+          <h3>Registered Players</h3>
+          <button id="print-button" class="player-btn">
+            Print All Registered Players
+          </button>
+          
+          <button type="button" class="archive player-btn" id="archiveButton">
+            Archive
+          </button>
+
+          
+          <div class="history-box">
+            <table id="players-table">
+              <thead>
+                <tr>
+                  <th>RFID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Category</th>
+                  <th>Age</th>
+                  <th>Belt</th>
+                  <th>Gym</th>
+                  <th>Weight (kg)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="record-content" id="record-content">
+          <h2>Record Content</h2>
+          <button class="back-button" onclick="goBack()">Back</button>
+          <div class="record-box">
+            {% for file in files %}
+            <div>
+              {% if file.mimeType == "application/vnd.google-apps.folder" %}
+              <i
+                class="fa-solid fa-folder folder-icon"
+                data-folder-id="{{ file.id }}"
+                onclick="toggleFolder('{{ file.id }}')"
+              ></i>
+              <span class="folder" onclick="toggleFolder('{{ file.id }}')"
+                >{{ file.name }}</span
+              >
+              <div id="folder-{{ file.id }}" class="folder-contents"></div>
+              {% else %}
+              <i class="fa-solid fa-file file"></i>
+              <span class="file">{{ file.name }}</span>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+          <div class="scoreboard-button">
+            <button data-url="{{ url_for('audienceSB') }}" class="open-window">
+              Audience
+            </button>
+            <button data-url="{{ url_for('adminSB') }}" class="open-window">
+              Admin
+            </button>
+            <button
+              type="button"
+              class="archive record-btn"
+              id="archiveRecordButton"
+            >
+              Archive Record Content
+            </button>
+            <button id="show-archives" class="open-window">
+              Show Archives
+            </button> 
+          </div>
+        </div>
+
+        <div class="news-content" id="news-content">
+          <h2>Register Players</h2>
+          <div class="news-box-content">
+            <div class="wrapper">
+              <div class="form-container">
+                <form name="signup_form" class="inputBox">
+                  <div class="row">
+                    <div class="details">
+                      <label for="rfid">RFID</label>
+                      <input
+                      type="text"
+                      name="rfid"
+                      class="field"
+                      id="rfid"
+                      onfocus="blur()"
+                      required
+                      />
+                    </div>
+                  </div>
+                  <div class="row1">
+                    <div class="details">
+                      <label for="firstname">First Name</label>
+                      <input
+                        type="text"
+                        name="firstname"
+                        id="firstname"
+                        class="field"
+                        required
+                      />
+                    </div>
+                    <div class="details">
+                      <label for="middlename">Middle Name</label>
+                      <input
+                        type="text"
+                        name="middlename"
+                        id="middlename"
+                        class="field"
+                        required
+                      />
+                    </div>
+                    <div class="details">
+                      <label for="lastname">Last Name</label>
+                      <input
+                        type="text"
+                        name="lastname"
+                        id="lastname"
+                        class="field"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row2">
+                    <div class="details">
+                      <label for="category">Category</label>
+                      <select
+                        name="category"
+                        class="field"
+                        id="category"
+                        required
+                      >
+                        <option value="select">Select Category</option>
+                        <option value="Kids">Kids</option>
+                        <option value="Juniors">Juniors</option>
+                        <option value="Seniors">Seniors</option>
+                      </select>
+                    </div>
+                    <div class="details">
+                      <label for="age">Age</label>
+                      <input
+                        type="number"
+                        name="age"
+                        id="age"
+                        class="field"
+                        min="1"
+                        max="99"
+                        required
+                      />
+                    </div>
+                    <div class="details">
+                      <label for="belt">Belt</label>
+                      <select name="belt" class="field" id="belt" required>
+                        <option value="select">Select Belt</option>
+                        <option value="White">White</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Green">Green</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Red">Red</option>
+                        <option value="1st Dan Black Belt">1st Dan</option>
+                        <option value="2nd Dan Black Belt">2nd Dan</option>
+                        <option value="3rd Dan Black Belt">3rd Dan</option>
+                        <option value="4th Dan Black Belt">4th Dan</option>
+                        <option value="5th Dan Black Belt">5th Dan</option>
+                        <option value="6th Dan Black Belt">6th Dan</option>
+                        <option value="7th Dan Black Belt">7th Dan</option>
+                        <option value="8th Dan Black Belt">8th Dan</option>
+                        <option value="9th Dan Black Belt">9th Dan</option>
+                        <option value="10th Dan Black Belt">10th Dan</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row3">
+                    <div class="details">
+                      <label for="gym">Gym</label>
+                      <input
+                        type="text"
+                        name="gym"
+                        class="field"
+                        id="gym"
+                        required
+                      />
+                    </div>
+                    <div class="details">
+                      <label for="weight">Weight (kg)</label>
+                      <input
+                        type="number"
+                        name="weight"
+                        id="weight"
+                        class="field"
+                        min="1"
+                        step="0.1"
+                        required
+                      />
+                    </div>
+                    <!-- a-->
+                    <div class="details">
+                      <label for="weight_category">Weight Category</label>
+                      <select
+                        name="weight_category"
+                        class="field"
+                        id="weight_category"
+                        required
+                      >
+                        <option value="select">Select Weight Category</option>
+                        <option value="Flyweight">Flyweight</option>
+                        <option value="Bantamweight">Bantamweight</option>
+                        <option value="Featherweight">Featherweight</option>
+                        <option value="Lightweight">Lightweight</option>
+                        <option value="Welterweight">Welterweight</option>
+                        <option value="Middleweight">Middleweight</option>
+                        <option value="Heavyweight">Heavyweight</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <p class="error-message hidden"></p>
+                  <input type="submit" class="btn-submit" value="Register" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="../static/assets/js/admin.js"></script>
+  </body>
+</html>
+
+
+    </body>
+
+</html> 

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taekwondo Poomsae Scoreboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #222;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .scoreboard {
+            width: 90%;
+            max-width: 600px;
+            height: 95vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Keeps all elements evenly spaced */
+            align-items: center;
+            background: #333;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Player Info */
+        .player-info {
+            width: 100%;
+            background: #444;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* Score Boxes */
+        .score-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .score-box {
+            background: #111;
+            padding: 15px;
+            border-radius: 8px;
+            width: 45%;
+            text-align: center;
+        }
+
+        .score-box .score-value {
+            font-size: 45px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .score-box.accuracy {
+            background: #1E1E8F;
+        }
+
+        .score-box.presentation {
+            background: #8F1E1E;
+        }
+
+        /* Total Score */
+        .total-score {
+            background: #007bff;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 25px;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        /* Pending Deductions */
+        .pending-deductions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Centers everything inside */
+            justify-content: center;
+            text-align: center;
+            background: #444;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.2);
+            width: 90%;
+            max-width: 350px;
+            /* Prevents stretching on wide screens */
+        }
+
+        .pending-deductions h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #FFD700;
+        }
+
+        /* Deduction Input */
+        .deduction-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            /* Adds space between label and input */
+            width: 100%;
+        }
+
+        .deduction-input label {
+            flex: 1;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .deduction-input input {
+            width: 70px;
+            padding: 5px;
+            font-size: 16px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            background: #222;
+            color: white;
+            box-shadow: inset 0px 2px 4px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Submit Button */
+        .submit-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .submit-btn {
+            background: #28a745;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            max-width: 350px;
+            width: 90%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #218838;
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        let accuracyScore = 4.0;
+        let presentationScore = 6.0;
+
+        function updateDisplay() {
+            document.getElementById("accuracy-score").textContent = accuracyScore.toFixed(1);
+            document.getElementById("presentation-score").textContent = presentationScore.toFixed(1);
+            document.getElementById("total-score").textContent = (accuracyScore + presentationScore).toFixed(1);
+        }
+
+        function applyDeductions() {
+            let accuracyDeduction = parseFloat(document.getElementById("pending-accuracy").value) || 0;
+            let presentationDeduction = parseFloat(document.getElementById("pending-presentation").value) || 0;
+
+            console.log("Accuracy Deduction: ", accuracyDeduction);
+            console.log("Presentation Deduction: ", presentationDeduction);
+
+            // Apply deductions but ensure scores do not go below zero
+            let newAccuracyScore = Math.max(0, accuracyScore - accuracyDeduction);
+            let newPresentationScore = Math.max(0, presentationScore - presentationDeduction);
+
+            // Check if there's an actual change before updating
+            if (newAccuracyScore !== accuracyScore || newPresentationScore !== presentationScore) {
+                accuracyScore = newAccuracyScore;
+                presentationScore = newPresentationScore;
+                updateDisplay();
+
+                fetch("/update-score", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        playerName: "John Doe",
+                        belt: "Black",
+                        gym: "XYZ Taekwondo Club",
+                        weightClass: "68kg",
+                        accuracy: accuracyScore,
+                        presentation: presentationScore,
+                        total: accuracyScore + presentationScore
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert("Scores updated successfully!");
+                    })
+                    .catch(error => {
+                        console.error("Error submitting scores:", error);
+                    });
+
+                // Clear input fields after submission
+                document.getElementById("pending-accuracy").value = "";
+                document.getElementById("pending-presentation").value = "";
+            } else {
+                alert("No deductions applied.");
+            }
+        }
+
+        window.onload = function () {
+            updateDisplay();
+
+            // Check for admin mode
+            const urlParams = new URLSearchParams(window.location.search);
+            const mode = urlParams.get('mode');
+
+            if (mode !== 'admin') {
+                document.getElementById('pending-deductions').classList.add('hidden');
+                document.getElementById('submit-btn').classList.add('hidden');
+            }
+        };
+    </script>
+</head>
+
+<body>
+
+    <div class="scoreboard">
+        <h1>Taekwondo Poomsae Scoreboard</h1>
+
+        <div class="player-info">
+            <h2>Name: John Doe</h2>
+            <h2>Belt: Black</h2>
+            <h2>Gym: XYZ Taekwondo Club</h2>
+            <h2>Weight Class: 68kg</h2>
+        </div>
+
+        <div class="score-container">
+            <div class="score-box accuracy">
+                <h3>Accuracy</h3>
+                <div class="score-value" id="accuracy-score">4.0</div>
+            </div>
+            <div class="score-box presentation">
+                <h3>Presentation</h3>
+                <div class="score-value" id="presentation-score">6.0</div>
+            </div>
+        </div>
+
+        <div class="total-score">
+            Total Score: <span id="total-score">10.0</span>
+        </div>
+
+        <div class="pending-deductions" id="pending-deductions">
+            <h3>Pending Deductions</h3>
+            <div class="deduction-input">
+                <label>Accuracy:</label>
+                <input type="number" id="pending-accuracy" step="0.1" min="0">
+            </div>
+            <div class="deduction-input">
+                <label>Presentation:</label>
+                <input type="number" id="pending-presentation" step="0.1" min="0">
+            </div>
+        </div>
+
+        <div class="submit-container">
+            <button class="submit-btn" id="submit-btn" onclick="applyDeductions()">Submit Scores</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

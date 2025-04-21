@@ -1,0 +1,308 @@
+ /* General Styles */
+ body {
+     margin: 0;
+     font-family: Arial, sans-serif;
+     display: flex;
+     flex-direction: column;
+     height: 100vh;
+ }
+
+ /* Sidebar */
+ .container-sidebar {
+     background-color: #ffffff;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 20px 0;
+     width: 90px;
+     height: 100vh;
+     position: fixed;
+     left: 0;
+     top: 0;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     border-radius: 15px;
+ }
+
+ .container-nav-circle {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     padding: 10px 0;
+     position: relative;
+     cursor: pointer;
+ }
+
+ .circle-container {
+     width: 45px;
+     height: 45px;
+     background-color: #f3f3fa;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: background-color 0.3s ease-in-out;
+ }
+
+ .container-nav-circle:hover .circle-container,
+ .container-nav-circle.active .circle-container {
+     background-color: #f36c6c;
+ }
+
+ h1 {
+     font-size: 12px;
+     text-align: center;
+ }
+
+ /* Navbar */
+ .container-navbar {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     background-color: #ffffff;
+     padding: 10px 20px;
+     height: 60px;
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     position: fixed;
+     top: 0;
+     right: 0;
+     left: 100px;
+     z-index: 1000;
+ }
+
+ .notification-container {
+     width: 45px;
+     height: 45px;
+     background-color: #f3f3fa;
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-right: 20px;
+     cursor: pointer;
+     transition: background-color 0.3s ease-in-out;
+
+ }
+
+ .notification-container:hover {
+     background-color: #efdcdc;
+ }
+
+ .notification-container:hover .icon {
+     color: #f36c6c;
+     transition: color 0.3s ease-in-out;
+ }
+
+ .icon {
+
+     font-size: 20px;
+     color: #9c99a5;
+     transition: color 0.3s ease-in-out;
+ }
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    background-color: #f3f3fa;
+    padding: 8px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-name {
+    color: black;
+}
+
+.profile-name h1 {
+    margin: 0;
+    font-size: 13px;
+}
+
+.profile-name h2 {
+    margin: 2px 0 0 0;
+    font-size: 10px;
+    color: black;
+}
+
+.drop-down-icon {
+    color: black;
+    margin-left: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.drop-down-icon:hover {
+    color: #f36c6c;
+    transition: color 0.1s ease-in-out;
+}
+
+.drop-down {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #444;
+    list-style-type: none;
+    padding: 10px;
+    margin: 2px 0 0 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: visibility 0.2s ease, opacity 0.2s ease;
+}
+
+.drop-down ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.drop-down ul li {
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.drop-down ul li:hover {
+    background-color: #555;
+}
+
+
+.drop-down-icon:hover+.drop-down,
+.drop-down:hover {
+    visibility: visible;
+    opacity: 1;
+}
+
+ /* Main Page */
+ /* Ensure Student Welcome Message is Centered */
+ .student-container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: calc(100vh - 60px);
+     /* Full height minus navbar */
+     margin-left: 90px;
+     /* Adjust for sidebar */
+     text-align: center;
+     width: 100%;
+ }
+
+ /* Prevent shifting after refresh */
+ .student-container h2,
+ .student-container p {
+     margin: 10px 0;
+     font-size: 20px;
+ }
+ .container-mainpage {
+     background-color: #f5f6fa;
+     flex-grow: 1;
+     padding: 20px;
+     margin-left: 90px;
+     margin-top: 60px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ /* News & Events */
+ .container-news-events {
+     background: white;
+     padding: 20px;
+     margin: 200px auto;
+     width: 60%;
+     border-radius: 10px;
+     box-shadow: 0px 0px 10px gray;
+ }
+
+ .news-item {
+     background: #d32f2f;
+     color: white;
+     padding: 15px;
+     margin: 10px;
+     width: 80%;
+     border-radius: 5px;
+ }
+
+ /* Fix Sidebar & Navbar Space */
+
+/* Ensure Main Content Starts After Sidebar & Navbar */
+.container-mainpage, .container-news-events {
+    margin-left: 110px; /* Push content right (Sidebar is 90px) */
+    margin-top: 80px; /* Push content down (Navbar is 60px) */
+    width: calc(100% - 110px); /* Adjust width to fit */
+}
+
+/* Ensure Full Centered Content */
+.container-mainpage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px); /* Full height minus navbar */
+}
+
+/* Ensure News & Events Stay Inside Their Space */
+.container-news-events {
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+/* Ensure Sidebar is Fixed */
+.container-sidebar {
+    width: 90px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+/* Ensure Navbar is Fixed */
+.container-navbar {
+    position: fixed;
+    top: 0;
+    left: 90px; /* Adjust for sidebar */
+    right: 0;
+    height: 60px;
+    z-index: 1000;
+}
+/* Adjust Main Content Spacing */
+.container-mainpage, .container-news-events {
+    margin-left: 100px; /* Adjusted for Sidebar */
+    margin-top: 70px; /* Adjusted for Navbar */
+    width: calc(100% - 120px); /* Ensures content fits within layout */
+}
+
+/* Centering News & Events */
+.container-news-events {
+    max-width: 800px;
+    margin: 70px auto 0 auto; /* Centers the box */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}

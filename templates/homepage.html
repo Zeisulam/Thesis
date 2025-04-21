@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <script src="../static/assets/js/homepage.js"></script>
+    <link rel="stylesheet" href="../static/assets/css/homepage.css">
+</head>
+<body>
+    <nav id="homepage-nav">
+        <div class="logo">
+            Logo
+        </div>
+        <div class="links-container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="{{ url_for('log') }}">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="home-container">
+        <video autoplay loop muted plays-inline class="bg-clip">
+            <source src="../static/assets/images/Clip.mp4">
+        </video>
+        <div class="home">
+            <div class="container">
+                <h1>
+                    Hatdog
+                </h1>
+                <a href="{{ url_for('reg') }}">
+                    <button class="reg-button">Register Now</button>
+                </a>                        
+            </div>       
+        </div>
+    </div>
+</body>
+</html>

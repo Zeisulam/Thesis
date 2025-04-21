@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taekwondo Scoreboard</title>
+    <link rel="stylesheet" href="../static/assets/css/audienceSB.css" />
+  </head>
+
+  <body>
+    <!-- Waiting for Players (Initial State) -->
+    <div id="waiting-players" class="full-screen">
+      <h1>Waiting for players...</h1>
+      <div class="loader"></div>
+    </div>
+
+    <!-- Waiting to Start -->
+    <div id="waiting-start" class="full-screen hidden">
+      <h1>Waiting for the admin to start...</h1>
+      <div class="loader"></div>
+    </div>
+
+    <!-- Player Scoring Container -->
+    <div id="player-container" class="container hidden">
+      <h1>Taekwondo Scoreboard</h1>
+      <div class="content-container">
+        <div class="details-corner">
+          <div class="player-info">
+            <h2>Player Information</h2>
+            <div class="info-columns">
+              <div class="info-column">
+                <p><strong>Player:</strong> <span id="player-name"></span></p>
+                <p>
+                  <strong>Category:</strong> <span id="player-category"></span>
+                </p>
+              </div>
+              <div class="info-column">
+                <p><strong>Belt:</strong> <span id="player-belt"></span></p>
+                <p><strong>Gym:</strong> <span id="player-gym"></span></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="performing-container">
+            <h1>Performing:</h1>
+            <h2><span id="performance"></span></h2>
+          </div>
+
+          <div class="scoreboard">
+            <div class="column">
+              <h2>Accuracy</h2>
+              <p class="score" id="accuracy-score">4</p>
+            </div>
+            <div class="column">
+              <h2>Presentation</h2>
+              <p class="score" id="presentation-score">6</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="total-score-corner">
+          <div class="total-score-container">
+            <h2 class="total-score-title">Total Score</h2>
+            <span class="total-score-value" id="total-score">10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Waiting for Result -->
+    <div id="waiting-result" class="full-screen hidden">
+      <h1>Waiting for the result</h1>
+      <div class="loader"></div>
+    </div>
+
+    <!-- Winner Details -->
+    <div id="winner-details" class="full-screen hidden">
+      <h2>🏆 Winner: <span id="winner-name"></span></h2>
+      <p>Category: <span id="winner-category"></span></p>
+      <p>Belt: <span id="winner-belt"></span></p>
+      <p>Gym: <span id="winner-gym"></span></p>
+      <p>Total Score: <span id="winner-score"></span></p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="../static/assets/js/audienceSB.js"></script>
+  </body>
+</html>

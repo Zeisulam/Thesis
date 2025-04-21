@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="PTU-icon"
+      href="../static/assets/images/icon.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
+      integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="../static/assets/css/home.css" />
+    <title>PTU</title>
+  </head>
+  <body>
+    <nav class="nav_container">
+      <div class="nav__logo_container">
+        <a href="#" class="nav__logo"
+          ><img src="../static/assets/images/icon.png" alt="logo"
+        /></a>
+      </div>
+      <div class="menuToggle__wrapper">
+        <div class="menu-toggle_container">
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="ri-menu-line"></i>
+          </button>
+        </div>
+      </div>
+      <div class="">
+        <ul class="nav__list">
+          <li class="nav_item"><a href="#home" class="nav__links">Home</a></li>
+          <li class="nav_item">
+            <a href="#program" class="nav__links">Program</a>
+          </li>
+          <li class="nav_item">
+            <a href="#service" class="nav__links">Service</a>
+          </li>
+          <li class="nav_item">
+            <a href="#about" class="nav__links">About</a>
+          </li>
+          <li class="nav_item">
+            <a href="#community" class="nav__links">Community</a>
+          </li>
+        </ul>
+      </div>
+      <a class="btn" href="{{ url_for('reg') }}">Join Now</a>
+    </nav>
+
+    <div class="menu__window">
+      <div class="menuWindow-items">
+        <button class="close-menu" id="close-menu">
+          <i class="ri-close-large-line"></i>
+        </button>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#" class="join-now">Join Now</a>
+      </div>
+    </div>
+
+    <header class="section__container header__container" id="home">
+      <div class="header__content">
+        <span class="bg__blur"></span>
+        <span class="bg__blur header__blur"></span>
+        <h4>MASTER YOUR POOMSAE</h4>
+        <h1><span>UNLEASH YOUR</span> TRUE POTENTIAL</h1>
+        <p>
+          Refine your movements, sharpen your focus, and embrace the art of
+          Taekwondo. Develop strength, discipline, and precision with every
+          stance and technique. Sign up now and begin your journey toward
+          mastery!
+        </p>
+        <a class="btn" href="{{ url_for('reg') }}">Get Started</a>
+      </div>
+      <div class="header__image">
+        <img src="../static/assets/images/header.png" alt="header" />
+      </div>
+    </header>
+
+    <section class="section__container explore__container" id="program">
+      <div class="explore__header">
+        <h2 class="section__header">EXPLORE OUR PROGRAM</h2>
+      </div>
+      <div class="explore__grid">
+        <div class="explore__card">
+          <span><i class="ri-walk-fill"></i></span>
+          <h4>Forms & Poomsae</h4>
+          <p>
+            Master the art of Taekwondo forms with precision and discipline.
+            Improve your techniques, balance, and focus while learning
+            traditional poomsae movements.
+          </p>
+          <a href="{{ url_for('reg') }}"
+            >Join Now <i class="ri-arrow-right-line"></i
+          ></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-boxing-fill"></i></span>
+          <h4>Sparring & Combat</h4>
+          <p>
+            Enhance your reflexes, speed, and strategy through controlled
+            sparring sessions. Develop confidence and real-world self-defense
+            skills with expert guidance.
+          </p>
+          <a href="{{ url_for('reg') }}"
+            >Join Now <i class="ri-arrow-right-line"></i
+          ></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-heart-pulse-fill"></i></span>
+          <h4>Flexibility & Conditioning</h4>
+          <p>
+            Improve your agility, endurance, and overall fitness with
+            specialized training routines designed to enhance kicking power and
+            flexibility.
+          </p>
+          <a href="{{ url_for('reg') }}"
+            >Join Now <i class="ri-arrow-right-line"></i
+          ></a>
+        </div>
+        <div class="explore__card">
+          <span><i class="ri-run-line"></i></span>
+          <h4>Strength & Stamina</h4>
+          <p>
+            Build strength and stamina essential for Taekwondo through targeted
+            drills and exercises. Develop core power for improved performance in
+            every aspect of training.
+          </p>
+          <a href="{{ url_for('reg') }}"
+            >Join Now <i class="ri-arrow-right-line"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container class__container" id="service">
+      <div class="class__image">
+        <span class="bg__blur"></span>
+        <img
+          src="../static/assets/images/newclass-2.jpg"
+          alt="class"
+          class="class__img-1"
+        />
+        <img
+          src="../static/assets/images/newclass-1.png"
+          alt="class"
+          class="class__img-2"
+        />
+      </div>
+      <div class="class__content">
+        <h2 class="section__header">THE CLASS YOU WILL GET HERE</h2>
+        <p>
+          Led by our team of skilled and passionate Taekwondo instructors, "The
+          Training You Will Experience Here" is an intense, results-driven
+          session that blends the essential disciplines of Taekwondo, including
+          Kyorugi (sparring), Poomsae (forms), and self-defense techniques. Each
+          class is carefully structured to enhance your speed, power,
+          flexibility, and precision, ensuring continuous progress in your
+          martial arts journey. Whether you're perfecting your forms, sharpening
+          your sparring skills, or building discipline and confidence, our
+          training keeps you engaged, challenged, and constantly improving.
+        </p>
+        <a class="btn" href="{{ url_for('reg') }}">Join Now</a>
+      </div>
+    </section>
+
+    <section class="section__container join__container" id="about">
+      <h2 class="section__header">WHY TRAIN WITH US ?</h2>
+      <p class="section__subheader">
+        Join a welcoming and supportive Taekwondo community where you can train,
+        grow, and achieve your goals alongside fellow martial artists.
+      </p>
+      <div class="join__image">
+        <img src="../static/assets/images/join1.jpg" alt="Join" />
+        <div class="join__grid">
+          <div class="join__card">
+            <span><i class="ri-user-star-fill"></i></span>
+            <div class="join__card__content">
+              <h4>Personal Instructor</h4>
+              <p>Unlock your potential with our expert Personal Instructors.</p>
+            </div>
+          </div>
+          <div class="join__card">
+            <span><i class="ri-vidicon-fill"></i></span>
+            <div class="join__card__content">
+              <h4>Practice Sessions</h4>
+              <p>
+                Elevate your Taekwondo skills and mastery with practice
+                sessions.
+              </p>
+            </div>
+          </div>
+          <div class="join__card">
+            <span><i class="ri-building-line"></i></span>
+            <div class="join__card__content">
+              <h4>Strong Leadership</h4>
+              <p>
+                Expert coaching and a supportive environment to master
+                Taekwondo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review">
+      <div class="section__container review__container">
+        <div class="review__content">
+          <video id="reviewVideo" autoplay loop muted>
+            <source src="../static/assets/images/Clip.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section__container footer__container" id="community">
+      <span class="bg__blur"></span>
+      <span class="bg__blur footer__blur"></span>
+      <div class="footer__col withLogo">
+        <div class="footer__logo">
+          <img src="../static/assets/images/icon.png" alt="logo" />
+        </div>
+        <p>
+          Take the first step towards mastering the art of Taekwondo with our
+          specialized training programs. Develop strength, discipline, and
+          confidence. Let&apos;s train, achieve, and conquer together!
+        </p>
+        <div class="footer__socials">
+          <a href="#"><i class="ri-facebook-fill"></i></a>
+          <a href="#"><i class="ri-instagram-line"></i></a>
+          <a href="#"><i class="ri-twitter-fill"></i></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Company</h4>
+        <a href="#">Training Programs</a>
+        <a href="#">Belt Ranking System</a>
+        <a href="#">Instructor Certification</a>
+        <a href="#">Taekwondo Affiliations</a>
+      </div>
+      <div class="footer__col">
+        <h4>About Us</h4>
+        <a href="#">Taekwondo Blog</a>
+        <a href="#">Safety & Injury Prevention</a>
+        <a href="#">Our Instructos</a>
+        <a href="#">Careers</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">Dojang Locations</a>
+        <a href="#">Membership Policy</a>
+        <a href="#">Competition Guidelines</a>
+      </div>
+    </footer>
+    <div class="footer__bar">Copyright © 2025 4A-11. All rights reserved.</div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const video = document.getElementById("reviewVideo");
+        video.play();
+      });
+
+      function toggleMenu() {
+        document.querySelector(".nav__links").classList.toggle("active");
+      }
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          document.querySelector(".nav__links").classList.remove("active");
+        }
+      });
+
+      document.querySelectorAll(".nav__links a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href").substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 50,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const backToTopBtn = document.getElementById("backToTop");
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTopBtn.classList.add("show");
+          } else {
+            backToTopBtn.classList.remove("show");
+          }
+        });
+
+        backToTopBtn.addEventListener("click", (event) => {
+          event.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      });
+    </script>
+    <button id="backToTop" onclick="scrollToTop()">▲</button>
+  </body>
+</html>
