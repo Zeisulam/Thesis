@@ -1,5 +1,3 @@
-from gevent import monkey
-monkey.patch_all()
 import socket
 import threading
 from threading import Thread
@@ -32,7 +30,7 @@ app = Flask(__name__)
 app.secret_key = "7a396704-83f5-4598-8a7c-32e4bd58c676"
 app.config['SESSION_PERMANENT'] = False  # Ensure session expires on browser close
 app.register_blueprint(user_bp, url_prefix='/api')
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode="gevent")
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 
 
