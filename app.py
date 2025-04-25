@@ -115,24 +115,6 @@ def get_drive_service():
         print(f"❌ Error initializing Google Drive service: {e}")
         return None
     
-def receive_rfid_data():
-    """Function to receive RFID data from the server and send it to the frontend."""
-    try:
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
-            client_socket.connect((SERVER_IP, PORT))
-            print("[CONNECTED] Receiving RFID data...")
-
-
-
-            while True:
-                data = client_socket.recv(1024).decode().strip()
-                if data:
-                    print(f"[RFID] {data}")
-                    # Emit the actual RFID data to update the input box
-                    socketio.emit("rfid_data", {"rfid": data})
-
-    except Exception as e:
-        print(f"[ERROR] Could not connect: {e}")
 
 def rfid_and_winner_handler():
     """Single connection for RFID receiving & winner data sending."""
@@ -730,9 +712,9 @@ def credentials_to_dict(credentials):
     }
 
 
-
+connection_thread = Thread(target=rfid_and_winner_handler, daemon=True)
+connection_thread.start()
 if __name__ == "__main__":
     # Start RFID + winner connection in background
-    connection_thread = Thread(target=rfid_and_winner_handler, daemon=True)
-    connection_thread.start()
+    
     socketio.run(app, host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
