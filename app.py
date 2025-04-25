@@ -24,6 +24,7 @@ from flask_socketio import SocketIO, emit
 import queue
 import json
 import requests
+import time
 
 
 app = Flask(__name__)
@@ -146,6 +147,7 @@ def rfid_and_winner_handler():
 
         except (socket.error, ConnectionRefusedError):
             print("[ERROR] Connection lost. Retrying in 5 seconds...")
+            time.sleep(5)
             
 
 
